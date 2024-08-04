@@ -110,7 +110,7 @@ public class GoPluginImpl implements GoPlugin {
                 String shType = shTypeConfig.get("value");
 
                 if (shType == null || shType.trim().isEmpty()) {
-                    shType = "bash";
+                    shType = "sh";
                 }
 
                 scriptFileName = generateScriptFileName();
@@ -122,11 +122,7 @@ public class GoPluginImpl implements GoPlugin {
 
                 for (Map.Entry<String, String> entry : environmentVariables.entrySet()) {
                     if (!entry.getKey().equals("_")) {
-                        if (shType.equals("csh")) {
-                            envVarsString.append("setenv ").append(entry.getKey()).append(" '").append(entry.getValue()).append("'; ");
-                        } else {
-                            envVarsString.append("export ").append(entry.getKey()).append("='").append(entry.getValue()).append("'; ");
-                        }
+                        envVarsString.append("export ").append(entry.getKey()).append("='").append(entry.getValue()).append("'; ");
                     }
                 }
 
