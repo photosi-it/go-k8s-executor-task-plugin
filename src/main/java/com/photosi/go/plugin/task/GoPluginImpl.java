@@ -121,9 +121,7 @@ public class GoPluginImpl implements GoPlugin {
                 StringBuilder envVarsString = new StringBuilder();
 
                 for (Map.Entry<String, String> entry : environmentVariables.entrySet()) {
-                    if (!entry.getKey().equals("_")) {
-                        envVarsString.append("export ").append(entry.getKey()).append("='").append(entry.getValue()).append("'; ");
-                    }
+                    envVarsString.append("export ").append(entry.getKey()).append("='").append(entry.getValue()).append("'; ");
                 }
 
                 String workingDirectory = Paths.get(guestContainerSharedRoot, (String) context.get("workingDirectory")).toString();
