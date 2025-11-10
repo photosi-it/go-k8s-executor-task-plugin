@@ -16,11 +16,6 @@ The plugin operates as a bridge between GoCD agents and containerized workloads:
 4. Output streams are captured and forwarded to GoCD console logger
 5. Temporary script files are cleaned up post-execution
 
-### Execution Flow
-
-```
-GoCD Job → Plugin Handler → Script Generation → nsenter Invocation → Container Execution → Result Collection
-```
 
 ### Key Components
 
